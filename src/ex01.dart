@@ -19,7 +19,7 @@ void main() {
     if (inputb != null) {
       b = double.tryParse(inputb) ?? null;
     }
-    print('nhap c: ');
+    print('nhap c : ');
     inputc = stdin.readLineSync();
     if (inputc != null) {
       c = double.tryParse(inputc) ?? null;
