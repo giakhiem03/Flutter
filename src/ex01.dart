@@ -22,7 +22,7 @@ void main() {
     print('nhap c : ');
     inputc = stdin.readLineSync();
     if (inputc != null ) {
-      c = double.tryParse(inputc) ?? null;
+      c = double.tryParse(inputc ) ?? null;
     }
 
     if (a == 0) {
