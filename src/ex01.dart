@@ -21,7 +21,7 @@ void main() {
     }
     print('nhap c : ');
     inputc = stdin.readLineSync();
-    if (inputc != null) {
+    if (inputc != null ) {
       c = double.tryParse(inputc) ?? null;
     }
 
