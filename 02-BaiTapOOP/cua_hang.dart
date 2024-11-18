@@ -25,6 +25,7 @@ class CuaHang {
     _danhSachDienThoai.add(dienThoai);
   }
 
+  // cập nhập thông tin điện thoại
   void capNhatThongTinDienThoai(DienThoai dienThoai) {
     DienThoai? dienThoaiDuocTim;
     _danhSachDienThoai.forEach((dt) {
@@ -52,16 +53,12 @@ class CuaHang {
     print('điện thoại ${dienThoai.tenDienThoai} đã ngừng kinh doanh!');
   }
 
-  void timKiemDienThoai(String maDienThoai,
-      [String? tenDienThoai, String? hangDienThoai]) {
+  // tìm kiếm điện thoại theo mã điện thoại (bắt buộc phải nhập) và optional: tên điện thoại, hãng điện thoại
+  void timKiemDienThoai(String maDienThoai, [String? tenDienThoai, String? hangDienThoai]) {
     DienThoai? dienThoaiDuocTim;
     if (hangDienThoai.toString().trim() != '') {
       _danhSachDienThoai.forEach((dt) {
-        dienThoaiDuocTim = (dt.maDienThoai == maDienThoai &&
-                dt.tenDienThoai == tenDienThoai &&
-                dt.hangDienThoai == hangDienThoai)
-            ? dt
-            : null;
+        dienThoaiDuocTim = (dt.maDienThoai == maDienThoai && dt.tenDienThoai == tenDienThoai && dt.hangDienThoai == hangDienThoai) ? dt : null;
       });
     } else if (tenDienThoai.toString().trim() != '') {
       _danhSachDienThoai.forEach((dt) {
@@ -83,6 +80,8 @@ class CuaHang {
     _danhSachDienThoai.forEach((dt) => dt.hienThiThongTin());
   }
 
+
+  // tạo hóa đơn cho điện thoại
   void taoHoaDon(HoaDon hoaDon) {
     DienThoai? dienThoai;
     _danhSachDienThoai.forEach((dt) => dienThoai = dt.maDienThoai == hoaDon.dienThoaiDuocBan.maDienThoai ? dt : null);
@@ -93,19 +92,14 @@ class CuaHang {
       print('không tìm thấy điện được bán');
   }
 
-  void timKiemHoaDon(String maHoaDon,
-      [DateTime? ngayBan, String? tenKhachHang]) {
+  // tìm kiếm hóa đơn theo mã hóa đơn (bắt buộc) và optional: ngày bán, tên khách hàng
+  void timKiemHoaDon(String maHoaDon, [DateTime? ngayBan, String? tenKhachHang]) {
     HoaDon? hoaDonDuocTim;
     if (tenKhachHang.toString().trim() != '') {
       _danhSachHoaDon.forEach((hd) {
-        hoaDonDuocTim = (hd.maHoaDon == maHoaDon &&
-                hd.ngayBan == ngayBan &&
-                hd.tenKhachHang == tenKhachHang)
-            ? hd
-            : null;
+        hoaDonDuocTim = (hd.maHoaDon == maHoaDon && hd.ngayBan == ngayBan && hd.tenKhachHang == tenKhachHang) ? hd : null;
       });
-    } else if (ngayBan.toString().trim() != '' &&
-        ngayBan.runtimeType == DateTime) {
+    } else if (ngayBan.toString().trim() != '' && ngayBan.runtimeType == DateTime) {
       _danhSachHoaDon.forEach((hd) {
         hoaDonDuocTim =
             (hd.maHoaDon == maHoaDon && hd.ngayBan == ngayBan) ? hd : null;
