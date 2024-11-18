@@ -1,4 +1,5 @@
 import 'dien_thoai.dart';
+import 'top_dien_thoai.dart';
 
 class HoaDon {
   String _maHoaDon;
@@ -16,7 +17,15 @@ class HoaDon {
       this._soLuongMua,
       this._giaBanThucTe,
       this._tenKhachHang,
-      this._soDienThoaiKH);
+      this._soDienThoaiKH){
+        TopDienThoai.themDienThoaiDuocBan(_dienThoaiDuocBan);
+        // Kiểm tra số lần bán của điện thoại trước khi tạo hóa đơn
+        if (_dienThoaiDuocBan.banDienThoai()) {
+          print('Hóa đơn $_maHoaDon được tạo thành công.');
+        } else {
+          print('Không thể bán điện thoại ${_dienThoaiDuocBan.tenDienThoai}, đã được bán!');
+        }
+      }
 
   String get maHoaDon => _maHoaDon;
   set maHoaDon(String maHoaDon) {
@@ -43,6 +52,7 @@ class HoaDon {
           : _soLuongMua;
 
   DienThoai get dienThoaiDuocBan => _dienThoaiDuocBan;
+  
   void hienThiThongTinDT() {
     _dienThoaiDuocBan.hienThiThongTin();
   }
@@ -63,4 +73,26 @@ class HoaDon {
       _soDienThoaiKH = soDienThoaiKH;
     }
   }
+
+  double tinhTongTien() {
+    return _soLuongMua * _giaBanThucTe;
+  }
+
+  double loiNhuanThucTe() {
+    return _giaBanThucTe - dienThoaiDuocBan.giaNhap;
+  }
+
+  void hienThiThongTinHoaDon() {
+    print('mã hóa đơn: $_maHoaDon');
+    print('ngày lập hóa đơn: $ngayBan');
+    print('điện thoại được bán:');
+    _dienThoaiDuocBan.hienThiThongTin();
+    print('số lượng mua: $_soLuongMua');
+    print('giá bán thực tế: $_giaBanThucTe');
+    print('tên khách hàng: $_tenKhachHang');
+    print('số điện thoại khách hàng: $_soDienThoaiKH');
+  }
+
+
+
 }
