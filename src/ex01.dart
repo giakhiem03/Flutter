@@ -28,11 +28,11 @@ void main() {
     if (a == 0) {
       print('He so a phai khac 0 va phai la kieu so, vui long nhap lai');
     }
-    if (b == null) {
-      print('He so b phai la kieu so, vui long nhap lai');
+    if (b == null ) {
+      print('He so b phai la kieu so, vui long nhap lai!');
     }
     if (c == null) {
-      print('He so c phai la kieu so, vui long nhap lai');
+      print('He so c phai la kieu so, vui long nhap lai!');
     }
   } while (a == 0 || b == null || c == null);
   double delta;
