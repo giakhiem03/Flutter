@@ -29,6 +29,7 @@ void main() {
       print('He so a phai khac 0 va phai la kieu so, vui long nhap lai');
     }
     if (b == null ) {
+
       print('He so b phai la kieu so, vui long nhap lai!');
     }
     if (c == null) {
