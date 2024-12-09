@@ -1,0 +1,25 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "hello",
+      "body":"body 1",
+      "base64Image": ""
+    },
+    {
+        "id": 1,
+        "title": "hello",
+        "body":"body 2",
+        "base64Image": ""
+    },
+    {
+        "id": 1,
+        "title": "hello",
+        "body":"body 3",
+        "base64Image": ""
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
