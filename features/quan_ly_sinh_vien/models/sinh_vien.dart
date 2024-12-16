@@ -1,4 +1,3 @@
-import './lop_hoc.dart';
 class SinhVien{
   String _hoTen;
   int _tuoi;
